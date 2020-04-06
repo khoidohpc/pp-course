@@ -1,4 +1,5 @@
-#include <mpi.h>
+//# include <mpi.h>
+#include </usr/include/mpi/mpi.h>
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
