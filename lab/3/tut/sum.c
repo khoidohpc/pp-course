@@ -10,7 +10,7 @@ MPI_Status status;
 
 double main(int argc, char **argv)
 {
-    uint64_t count = 0, range = 100000000, pointCount = 0;
+    uint64_t count = 0;
     int rank, size;
     double pi, wtime;
 
@@ -30,8 +30,6 @@ double main(int argc, char **argv)
         wtime = MPI_Wtime();
         printf("Sum 1 to p.\n");
     }
-
-    uint64_t processCount = (uint64_t)(range / size);
 
     MPI_Reduce(&rank, &count, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 
