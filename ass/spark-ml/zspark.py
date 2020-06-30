@@ -84,10 +84,10 @@ def train_model(train_data: DataFrame, test_data: DataFrame, type: Classifier, v
         clasifiter = LogisticRegression(
             maxIter=20, regParam=0.3, elasticNetParam=0)
     elif type == Classifier.NaiveBayes:
-        # Use Logistic Regression
+        # Use Naive Bayes
         clasifiter = NaiveBayes(smoothing=1)
     elif type == Classifier.RandomForest:
-        # Use Logistic Regression
+        # Use Random Forest
         clasifiter = RandomForestClassifier(labelCol="label", featuresCol="features",
                                             numTrees=100, maxDepth=4, maxBins=32)
     else:
@@ -117,7 +117,9 @@ if __name__ == "__main__":
 
         (train_data, test_data) = trans_data.randomSplit([0.7, 0.3], seed=100)
 
-        train_model(train_data, test_data, Classifier.RandomForest, True)
+        train_model(train_data, test_data, Classifier.LogisticRegression, True)
+        # train_model(train_data, test_data, Classifier.NaiveBayes, True)
+        # train_model(train_data, test_data, Classifier.RandomForest, True)
 
     finally:
         spark_context.stop()

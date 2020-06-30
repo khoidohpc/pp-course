@@ -5,7 +5,7 @@
 ### C ###
 # Prerequisites
 *.d
-
+*.csv
 # Object files
 *.o
 *.ko
